@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'authors'], function () {
+   Route::get('/{author}', \App\Http\Controllers\Api\Author\ShowController::class);
+   Route::post('/create', \App\Http\Controllers\Api\Author\CreateController::class);
+   Route::patch('/{author}', \App\Http\Controllers\Api\Author\UpdateController::class);
+   Route::delete('/{author}', \App\Http\Controllers\Api\Author\DeleteController::class);
+});
+
+Route::group(['prefix' => 'books'], function () {
+    Route::get('/{book}', \App\Http\Controllers\Api\Book\ShowController::class);
+    Route::post('/create', \App\Http\Controllers\Api\Book\CreateController::class);
+    Route::patch('/{book}', \App\Http\Controllers\Api\Book\UpdateController::class);
+    Route::delete('/{book}', \App\Http\Controllers\Api\Book\DeleteController::class);
+});
