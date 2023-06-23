@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\Author;
+namespace App\Http\Requests\Api\CRUD\Author;
 
 use Illuminate\Foundation\Http\FormRequest;
 

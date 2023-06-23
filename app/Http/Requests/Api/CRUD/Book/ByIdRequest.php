@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\Author;
+namespace App\Http\Requests\Api\CRUD\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class ByIdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,16 +22,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'author.required' => 'Необходимо указать имя автора',
-            'author.string' => 'Имя автора должно быть строкой',
-            'author.max' => 'Имя автора не длиннее 255',
+            'id' => 'required|integer|exists:books,id'
         ];
     }
 }

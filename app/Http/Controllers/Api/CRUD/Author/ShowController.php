@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Author;
+namespace App\Http\Controllers\Api\CRUD\Author;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Author\AuthorResource;

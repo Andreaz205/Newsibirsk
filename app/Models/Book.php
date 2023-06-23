@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
 
     public function author(): BelongsTo
     {

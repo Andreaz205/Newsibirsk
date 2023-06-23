@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\Book;
+namespace App\Http\Controllers\Api\CRUD\Book;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Book\CreateRequest;
+use App\Http\Requests\Api\CRUD\Book\CreateRequest;
 use App\Http\Resources\Api\Book\BookResource;
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {

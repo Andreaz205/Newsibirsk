@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api\Book;
+namespace App\Http\Controllers\Api\CRUD\Book;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\Book\BookResource;
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class ShowController extends Controller
 {

@@ -19,15 +19,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'authors'], function () {
-   Route::get('/{author}', \App\Http\Controllers\Api\Author\ShowController::class);
-   Route::post('/create', \App\Http\Controllers\Api\Author\CreateController::class);
-   Route::patch('/{author}', \App\Http\Controllers\Api\Author\UpdateController::class);
-   Route::delete('/{author}', \App\Http\Controllers\Api\Author\DeleteController::class);
+    Route::get('/list', \App\Http\Controllers\Api\CRUD\Author\ListController::class);
+    Route::get('/{author}', \App\Http\Controllers\Api\CRUD\Author\ShowController::class);
+    Route::post('/create', \App\Http\Controllers\Api\CRUD\Author\CreateController::class);
+    Route::patch('/{author}', \App\Http\Controllers\Api\CRUD\Author\UpdateController::class);
+    Route::delete('/{author}', \App\Http\Controllers\Api\CRUD\Author\DeleteController::class);
 });
 
 Route::group(['prefix' => 'books'], function () {
-    Route::get('/{book}', \App\Http\Controllers\Api\Book\ShowController::class);
-    Route::post('/create', \App\Http\Controllers\Api\Book\CreateController::class);
-    Route::patch('/{book}', \App\Http\Controllers\Api\Book\UpdateController::class);
-    Route::delete('/{book}', \App\Http\Controllers\Api\Book\DeleteController::class);
+    Route::get('/list', \App\Http\Controllers\Api\CRUD\Book\ListController::class);
+    Route::get('/{book}', \App\Http\Controllers\Api\CRUD\Book\ShowController::class);
+    Route::post('/create', \App\Http\Controllers\Api\CRUD\Book\CreateController::class);
+    Route::patch('/{book}', \App\Http\Controllers\Api\CRUD\Book\UpdateController::class);
+    Route::delete('/{book}', \App\Http\Controllers\Api\CRUD\Book\DeleteController::class);
+});
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::group(['prefix' => 'books'], function () {
+        Route::get('list', [\App\Http\Controllers\Api\BookController::class, 'list']);
+        Route::get('by-id', [\App\Http\Controllers\Api\BookController::class, 'byId']);
+        Route::patch('update', [\App\Http\Controllers\Api\BookController::class, 'update']);
+        Route::delete('{book}', [\App\Http\Controllers\Api\BookController::class, 'destroy']);
+    });
 });

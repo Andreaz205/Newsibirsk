@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Author;
+namespace App\Http\Controllers\Api\CRUD\Author;
 
 use App\Http\Controllers\Controller;
 use App\Models\Author;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
 class DeleteController extends Controller

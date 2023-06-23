@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\Book;
+namespace App\Http\Requests\Api\CRUD\Book;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,7 +22,6 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|integer|exists:books,id',
             'title' => 'required|string|max:255',
             'author_id' => 'nullable|integer|exists:authors,id',
         ];
@@ -31,10 +30,6 @@ class UpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'id.required' => 'Необходимо указать id книги',
-            'id.integer' => 'Id книги должно быть типа integer',
-            'id.exists' => 'Указанного id не существует',
-
             'title.required' => 'Необходимо указать название книги',
             'title.string' => 'Название книги должно быть строкой',
             'title.max' => 'Название книги не длиннее 255',

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\Book;
+namespace App\Http\Controllers\Api\CRUD\Book;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Book\UpdateRequest;
+use App\Http\Requests\Api\CRUD\Book\UpdateRequest;
 use App\Http\Resources\Api\Book\BookResource;
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class UpdateController extends Controller
 {
